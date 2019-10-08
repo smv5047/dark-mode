@@ -4,8 +4,8 @@ import React, {useEffect} from 'react'
 const body = document.querySelector('.body')
 const toggle = document.querySelector('.toggle')
 
-export function useDarkMode (enabled) {
-    const [someValue, setSomeValue] = useLocalStorage(enabled)
+export function useDarkMode () {
+    const [someValue, setSomeValue] = useLocalStorage(true)
 
     useEffect(()=>{
         if (useLocalStorage === true){
@@ -13,12 +13,12 @@ export function useDarkMode (enabled) {
         } else {
             body.classList.remove('.dark-mode')
         }
-    },[toggle])
+    },[someValue])
 
-    const setValue = (value) =>{
+    // const setValue = (value) =>{
 
-        setSomeValue(value)
-    }
+    //     setSomeValue(value)
+    // }
 
-    return [];
+    return [someValue, setSomeValue];
 }
