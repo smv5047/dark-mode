@@ -179,7 +179,11 @@ img {
   -moz-box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42);
 }
-
+.navLinks {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
 .dark-mode__toggle {
   background: papayawhip;
   border-radius: 50px;
