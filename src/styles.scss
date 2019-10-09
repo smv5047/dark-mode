@@ -184,6 +184,19 @@ img {
   width: 100%;
   justify-content: space-evenly;
 }
+
+.coinLinks {
+  text-decoration: none;
+  color:inherit;
+  font-size: 1.5rem;
+  &:hover{
+    
+    color: #f68819;
+  }
+
+  
+}
+
 .dark-mode__toggle {
   background: papayawhip;
   border-radius: 50px;
@@ -204,7 +217,7 @@ img {
 }
 
 .toggled {
-  left: 18px;
+  left: 14px;
 }
 
 .charts {

@@ -11,13 +11,18 @@ const Navbar = ({coinData}) => {
   
   return (
     <nav className="navbar">
-      <h1>Crypto Tracker</h1>
+      <Router>
+        <Link className="coinLinks" exact to="/">
+          <h1>Crypto Tracker</h1>
+        </Link>
+      </Router>
+
       <div className ="navLinks">
         {coinData.map(coin => (
         <Router>
-            <Link to={`../pages/${coin.name}`}>
+            <Link className="coinLinks" exact to={`../pages/${coin.name}`}>
                 
-                <p>{coin.name}</p>
+                <p >{coin.name}</p>
             </Link>
         </Router>
         ))}
