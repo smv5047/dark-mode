@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useDarkMode} from '../hooks/useDarkMode'
-import {BrowserRouter as Router, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
+import DetailedView  from "./DetailedView"
 
 const Navbar = ({coinData}) => {
   const [darkMode, setDarkMode] = useDarkMode();
@@ -8,7 +9,7 @@ const Navbar = ({coinData}) => {
     e.preventDefault();
     setDarkMode(!darkMode);
   };
-  
+  //Return nav bar including coins mapped ot navbar
   return (
     <nav className="navbar">
       <Router>
@@ -17,14 +18,22 @@ const Navbar = ({coinData}) => {
         </Link>
       </Router>
 
+      
       <div className ="navLinks">
         {coinData.map(coin => (
         <Router>
-            <Link className="coinLinks" exact to={`../pages/${coin.name}`}>
-                
-                <p >{coin.name}</p>
+            <Link className="coinLinks" exact 
+              to={{
+                pathname: `/${coin.name}`,
+                state: {coinData}
+              }}>
+                <p>{coin.name}</p>
             </Link>
+            <Switch>
+              <Route path={`/${coin.name}`} component={DetailedView} />
+            </Switch>
         </Router>
+        
         ))}
       </div>
       <div className="dark-mode__toggle">
@@ -38,3 +47,5 @@ const Navbar = ({coinData}) => {
 };
 
 export default Navbar;
+
+// `../pages/${coin.name}`}
